@@ -2,10 +2,79 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <title>Minha Página</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site com Menu no Topo</title>
+    <style>
+        /* Remove margens padrão do navegador */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            padding-top: 60px; /* Evita que o menu cubra o conteúdo */
+        }
+
+        /* Estilo do menu no topo */
+        .menu-topo {
+            background-color: #333;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            z-index: 1000;
+        }
+
+        /* Lista de links do menu */
+        .menu-topo ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center; /* Centraliza os itens */
+        }
+
+        /* Itens do menu */
+        .menu-topo li {
+            padding: 15px 20px;
+        }
+
+        /* Links do menu */
+        .menu-topo a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        /* Efeito ao passar o mouse */
+        .menu-topo a:hover {
+            color: #4CAF50;
+        }
+
+        /* Conteúdo da página */
+        .conteudo {
+            padding: 20px;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
-    <h1>Olá, Mundo!</h1>
-    <p>Este é o meu primeiro código HTML.</p>
+
+    <!-- Menu de Navegação -->
+    <nav class="menu-topo">
+        <ul>
+            <li><a href="index.html">Início</a></li>
+            <li><a href="sobre.html">Sobre Nós</a></li>
+            <li><a href="servicos.html">Serviços</a></li>
+            <li><a href="contato.html">Contato</a></li>
+        </ul>
+    </nav>
+
+    <!-- Conteúdo Principal -->
+    <main class="conteudo">
+        <h1>Bem-vindo à Página Inicial</h1>
+        <p>Este é o conteúdo principal da sua página com o menu fixado no topo.</p>
+    </main>
+
 </body>
 </html>
