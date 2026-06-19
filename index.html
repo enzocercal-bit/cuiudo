@@ -78,3 +78,101 @@
 
 </body>
 </html>
+<!-- PATO POLÍTICO (ELEMENTO VISUAL) -->
+<div id="pato-politico" class="container-pato">
+    <!-- Balão de Fala -->
+    <div id="balao-pato" class="balao-fala">Vote em mim!</div>
+    
+    <!-- Corpo do Pato feito em SVG -->
+    <svg viewBox="0 0 100 100" width="80" height="80">
+        <!-- Corpo (Amarelo) -->
+        <circle cx="50" cy="60" r="25" fill="#FFD700" />
+        <!-- Cabeça (Amarelo) -->
+        <circle cx="50" cy="30" r="18" fill="#FFD700" />
+        <!-- Olho (Preto) -->
+        <circle cx="55" cy="26" r="3" fill="#000" />
+        <!-- Bico (Laranja) -->
+        <polygon points="58,28 73,32 58,38" fill="#FF8C00" />
+        <!-- Terno Presidencial (Preto) -->
+        <path d="M32,73 Q50,55 68,73 L62,85 L38,85 Z" fill="#111" />
+        <!-- Camisa Branca -->
+        <polygon points="45,60 55,60 50,72" fill="#FFF" />
+        <!-- Gravata Borboleta (Vermelha de Político) -->
+        <polygon points="44,60 50,64 44,68" fill="#D32F2F" />
+        <polygon points="56,60 50,64 56,68" fill="#D32F2F" />
+        <circle cx="50" cy="64" r="2" fill="#D32F2F" />
+    </svg>
+    <div style="text-align: center; font-size: 11px; font-weight: bold; background: #000; color: #FFF; border-radius: 5px; padding: 2px;">CANDIDATO</div>
+</div>
+
+<!-- ESTILOS DO PATO -->
+<style>
+    .container-pato {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 9999;
+        cursor: pointer;
+        animation: flutuar 3s ease-in-out infinite;
+    }
+
+    /* Animação para o pato ficar subindo e descendo levemente */
+    @keyframes flutuar {
+        0% { transform: translateY(0px); }
+        50% { transform: translateY(-10px); }
+        100% { transform: translateY(0px); }
+    }
+
+    /* Estilo do Balão de Fala */
+    .balao-fala {
+        position: absolute;
+        top: -65px;
+        right: 0;
+        background-color: white;
+        border: 2px solid #222;
+        border-radius: 10px;
+        padding: 8px 12px;
+        font-family: Arial, sans-serif;
+        font-size: 13px;
+        font-weight: bold;
+        white-space: nowrap;
+        box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+        opacity: 1;
+        transition: opacity 0.3s;
+    }
+
+    /* Setinha do balão de fala */
+    .balao-fala::after {
+        content: '';
+        position: absolute;
+        bottom: -10px;
+        right: 30px;
+        border-width: 10px 10px 0;
+        border-style: solid;
+        border-color: white transparent;
+        display: block;
+        width: 0;
+    }
+</style>
+
+<!-- FRASES DO PATO (JAVASCRIPT) -->
+<script>
+    const frases = [
+        "Quack! Vou proibir as segundas-feiras!",
+        "Prometo lagoas limpas e milho grátis!",
+        "Quack! Menos impostos sobre o alpiste!",
+        "Meu adversário é um ganso corrupto!",
+        "Quack! Vote 99, o candidato do povo!",
+        "Chega de promessas furadas, eu dou asas ao país!"
+    ];
+
+    const balao = document.getElementById('balao-pato');
+    const pato = document.getElementById('pato-politico');
+
+    // Muda a frase toda vez que passa o mouse no pato
+    pato.addEventListener('mouseenter', () => {
+        const fraseAleatoria = frases[Math.floor(Math.random() * frases.length)];
+        balao.innerText = fraseAleatoria;
+        balao.style.opacity = '1';
+    });
+</script>
